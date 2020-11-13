@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title> university community</title>
+  <title> Research Easy</title>
 </head>
+
 <body>
   <header>
-<nav>
-  <!-- #/(no dirija a otra pagina) si no agrege a nuestra url una nueva ruta -->
-  <li><a href="#/registro"> Resgistro</a></li>
-  <li><a href="#/registrate">Regsitrate </a></li>
-</nav>
+    <nav>
+      <!-- #/(no dirija a otra pagina) si no agrege a nuestra url una nueva ruta -->
+      <li><a href="#/Sign In"> Resgistro</a></li>
+      <li><a href="#/Sign Up">Regsitrate </a></li>
+    </nav>
   </header>
-  <section id="container"></section></section>
+  <section id="container"></section>
+  <div id=login>
+    <p><b> WELCOME TO RESEARCH EASY</b></p>
+  <input type="email" placeholder="correo electronico">
+  <input type="password" placeholder="contraseña">
+  <button id= login>Log In</button>
+</div>
+  </section>
+  <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
   <footer>
     <p>Derechos de autor 2020 Garcia & Huamani © </p>
     <div class="row">
@@ -22,6 +32,7 @@
       <i class="fas fa-mobile-alt"> mobile </i>
     </div>
   </footer>
+
   <script type="module" src="main.js"></script>
 </body>
 </html>

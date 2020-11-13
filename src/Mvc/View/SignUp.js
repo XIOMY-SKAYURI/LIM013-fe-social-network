@@ -1,3 +1,6 @@
+//  ----------------Función que mostrará contenido de vista Sign Up (Registro)-------------//
+// exportamos al archivo index de la misma carpeta 'view'
+
 export default () => {
   const viewSignUp = `
     <section>
@@ -31,7 +34,7 @@ export default () => {
     `;
 
   // creamos un nuevo elemento div  y agregamos  viewsingup
-  const divElemt = document.createElement('section');
+  const divElemt = document.createElement('section');// ojo
   divElemt.classList.add('position');
   divElemt.innerHTML = viewSignUp;
   return divElemt;// retorname el nuevo elemento
