@@ -1,18 +1,24 @@
 import { components } from '../View/index.js';
 
-// -------------------Función que mostrará el valor de container para cada ruta---------------------
+// -------------------Función que asocia el valor de container para cada ruta---------------------
 // el contenido de conatiner es variante
 
+// exportamos a main.js
 export const changeTmp = (hash) => {
-  // console.log(hash);
-  // const id = hash.split('/')[1];
   const container = document.getElementById('container');
+  // La hash propiedad  devuelve  un '#'seguido del identificador de fragmento de la URL.
+  window.location.hash = hash;
   container.innerHTML = '';
-
   switch (hash) {
-    case '#/SignIn': { return container.appendChild(components.SignI()); }
-    case '#/SignUp': { return container.appendChild(components.SignU()); }
-    case '#/Home': { return container.appendChild(components.hom()); }
+    case '': // agregame al final de container components y su propiedad
+      container.appendChild(components.SignI());
+      break;
+    case '#/signUp':
+      container.appendChild(components.SignU());
+      break;
+    case '#/Home':
+      container.appendChild(components.hom());
+      break;
     default:
       return container.appendChild(components.Different());
   }

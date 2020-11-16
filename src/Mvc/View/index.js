@@ -3,10 +3,10 @@ import SignIn from './SignIn.js';
 import SignUp from './SignUp.js';
 import Different from './404.js';
 
-// ------------------------Función de objetos----------------------------------
+// ------------------------Objetos----------------------------------
 // creo objeto que tendra por valor función home, SignIn, SignUp
 
-// exporto función que usare en rauter.js de view-controller
+// exporta se usara en rauter.js de view-controller
 export const components = {
   hom: home,
   SignI: SignIn,
