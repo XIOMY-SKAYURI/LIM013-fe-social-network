@@ -9,6 +9,7 @@ export const firebaseInit = () => {
     messagingSenderId: '1025937734584',
     appId: '1:1025937734584:web:7dd3790df267cefea26d4d',
   };
-    // Initialize Firebase
+  // Initialize Firebase
+
   firebase.initializeApp(firebaseConfig);
 };

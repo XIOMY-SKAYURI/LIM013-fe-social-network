@@ -17,11 +17,13 @@
 
 //  ----------------Función que mostrará contenido de vista Sign Up (Registro)-------------//
 // exportamos al archivo index de la misma carpeta 'view'
-// event.preventDefault();
+
+
 export default () => {
   const viewSignUp = document.createElement('div');
   viewSignUp.classList.add('view-SignUp');
   viewSignUp.innerHTML = `
+
       <section id='sectionRegistro'>
           <figure>
     <img class="investigacion" src="imagenes/investigacion.png">
@@ -60,6 +62,7 @@ export default () => {
        </section>
       `;
 
+
   const btnRegister = viewSignUp.querySelector('.register');
   btnRegister.addEventListener('click', () => {
     // const name = document.getElementById('name').value;
@@ -69,15 +72,21 @@ export default () => {
     // const password = document.getElementById('password').value;
     // registerUser(name, surname, user, email, password);
   }); // condiconal
-
   return viewSignUp;
 };
 
 // ---------------------funcion de firebase------------------------
 // firebase.auth().createUserWithEmailAndPassword(email, password)
-// .then(userCredencial =>{
-//     console.log('holi')
+
+// .catch(function(error) {
+// Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     alert('error');
+
 //   });
 
 // querySelector() te devolvera el primer elemento que cumpla la condicion que especifiques
 // QuerySelectorAll: selecciona todas las coincidencias y las retorna en un array
+
+// getElementById() tienes que hacer referencia a un elemento que tenga un id unico

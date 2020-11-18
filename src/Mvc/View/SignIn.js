@@ -1,5 +1,6 @@
 //  ----------------Función que mostrará contenido de vista Sign In (iniciar secion)-------------//
 // exportamos al archivo index de la misma carpeta 'vistas'
+
 // import { firebaseInit } from '../firebase/firebase-init.js';
 
 export default () => {
