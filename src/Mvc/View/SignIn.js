@@ -7,6 +7,7 @@ export default () => {
   const viewSignIn = document.createElement('div');
   // viewSignIn.classList.add('position');
   viewSignIn.innerHTML = `
+<<<<<<< HEAD
     <form>
     <div class='logIn'>
     <figure> 
@@ -41,5 +42,6 @@ export default () => {
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(error => console.log(error.message));
   });
+
   return viewSignIn;
 };
