@@ -1,3 +1,6 @@
+//  --------------------------Función que mostrará contenido de vista home------------------------//
+// exportamos al archivo index de la misma carpeta 'vistas'
+
 export default () => {
   const viewHome = `
       <h2 class="text-center">¡Bienvenido a nuestra página!</h2>

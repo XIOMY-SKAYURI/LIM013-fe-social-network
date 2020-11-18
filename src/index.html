@@ -5,31 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> UNIversity community</title>
+    <link rel="stylesheet" href="Css/SignIn.css" />
+    <link rel="stylesheet" href="Css/SignUp.css" />
+    <title> Research Easy</title>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <!-- #/(no dirija a otra pagina) si no agrege a nuestra url una nueva ruta -->
-            <!-- vista home -->
-            <li><a href="#/"> Research Easy</a></li>
-            <!-- vista login -->
-            <li><a href="#/login">Login</a></li>
-            <!-- vista createaccount -->
-            <li><a href="#/createaccount">Create an account </a></li>
-        </nav>
-    </header>
-    <section id="container"></section>
+
+    <section id="container">
     </section>
-    <footer>
-        <p>Derechos de autor 2020 Garcia & Huamani © </p>
-        <div class="row">
-            <i class="fas fa-desktop"> desktop </i>
-            <i class="fas fa-mobile-alt"> mobile </i>
-        </div>
-    </footer>
-    <script type="module" src="./main.js"></script>
+    <section class="loading">
+    </section>
+
+    <!-- <header>
+    <nav>
+     
+      <li><a href="#/Sign In"> Resgistro</a></li>
+      <li><a href="#/Sign Up">Regsitrate </a></li>
+    </nav>
+  </header>
+  <section id="container"></section>
+  </section> -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <!-- <footer>
+    <p>Derechos de autor 2020 Garcia & Huamani © </p>
+    <div class="row">
+      <i class="fas fa-desktop"> desktop </i>
+      <i class="fas fa-mobile-alt"> mobile </i>
+    </div>
+  </footer> -->
+
+    <script type="module" src="main.js"></script>
 </body>
 
 </html>
