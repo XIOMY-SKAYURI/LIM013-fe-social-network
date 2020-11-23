@@ -63,7 +63,9 @@ export default () => {
 
 
   const btnRegister = viewSignUp.querySelector('#SignUp');
-  btnRegister.addEventListener('click', () => {
+  console.log(btnRegister);
+  btnRegister.addEventListener('click', (e) => {
+    e.preventDefault();
     const name = document.querySelector('#name').value;
     const surname = document.querySelector('#surname').value;
     const user = document.querySelector('#user').value;

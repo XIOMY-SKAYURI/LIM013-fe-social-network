@@ -69,5 +69,55 @@ export default () => {
         // console.log(error);
       });
   });
+
+  // Maneja el flujo de acceso con el SDK de Firebase
+  const ingresarGoogle = viewSignIn.querySelector('.ingresargoogle');
+  ingresarGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    // 1.Crea una instancia del objeto del proveedor de Google
+    const provider = new firebase.auth.GoogleAuthProvider();
+    // firebase.auth().languageCode = 'pt';
+    firebase.auth().signInWithPopup(provider)
+      .then(() => {
+        window.location.hash = '#/Home';
+      });
+      // .catch((error) => {
+      // // Handle Errors here.
+      //   const errorCode = error.code;
+      //   console.log('errorCode');
+      //   const errorMessage = error.message;
+      //   console.log('errorMessage');
+      //   // The email of the user's account used.
+      //   const email = error.email;
+      //   console.log('email');
+      //   // The firebase.auth.AuthCredential type that was used.
+      //   const credential = error.credential;
+      //   console.log('credential');
+      // // ...
+      // });
+  });
   return viewSignIn;
 };
+
+// const ingresarGoogle = viewSignIn.querySelector('.ingresargoogle');
+// ingresarGoogle.addEventListener('click', (e) => {
+//   e.preventDefault();}
+//   const provider = new firebase.auth.GoogleAuthProvider();
+//   firebase.auth().signInWithPopup(provider).then(function(result) {
+//   // This gives you a Google Access Token. You can use it to access the Google API.
+//   var token = result.credential.accessToken;
+//   // The signed-in user info.
+//   var user = result.user;
+//   // ...
+// }).catch(function(error) {
+//   // Handle Errors here.
+//   var errorCode = error.code;
+//   var errorMessage = error.message;
+//   // The email of the user's account used.
+//   var email = error.email;
+//   // The firebase.auth.AuthCredential type that was used.
+//   var credential = error.credential;
+//   // ...
+// });
+// return viewSignIn;
+// });
