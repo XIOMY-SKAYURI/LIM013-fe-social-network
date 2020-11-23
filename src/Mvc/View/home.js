@@ -3,9 +3,9 @@
 
 export default () => {
   const viewHome = `
-      <h2 class="text-center">¡Bienvenido a nuestra página!</h2>
+      <h2 class="text-center">¡HOME!</h2>
       <figure class="text-center">
-        <img class="image" src="" alt="university community">
+        <img class="image" src="imagenes/home.png" alt="university community">
       </figure>`;
 
   // creamos un nuevo elemento div  y agregamos  viewHome

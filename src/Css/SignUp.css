@@ -44,6 +44,7 @@ body {
     display: flex;
     align-items: baseline;
 }
+
 .linea {
     width: 81px;
     height: 1px;
@@ -178,5 +179,4 @@ p4 {
         width: 547px;
         height: 43px;
         font-size: 18px;
-    }
-}
+    }}

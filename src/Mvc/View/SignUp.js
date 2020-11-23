@@ -21,6 +21,7 @@ const registerUser = (name, surname, user, email, password) => {
 //  ----------------Función que mostrará contenido de vista Sign Up (Registro)-------------//
 // exportamos al archivo index de la misma carpeta 'view'
 
+
 export default () => {
   const viewSignUp = document.createElement('div');
   viewSignUp.classList.add('view-SignUp');
@@ -60,6 +61,7 @@ export default () => {
    </section>
   `;
 
+
   const btnRegister = viewSignUp.querySelector('#SignUp');
   btnRegister.addEventListener('click', () => {
     const name = document.querySelector('#name').value;
@@ -92,6 +94,8 @@ export default () => {
   return viewSignUp;
 };
 
+
 // querySelector() te devolvera el primer elemento que cumpla la condicion que especifiques
 // QuerySelectorAll: selecciona todas las coincidencias y las retorna en un array
+
 // getElementById() tienes que hacer referencia a un elemento que tenga un id unico
