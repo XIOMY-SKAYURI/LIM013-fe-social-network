@@ -75,7 +75,7 @@ h2 {
     margin-right: 50%;
 }
 
-.register {
+.register.msgtext{
     width: 300px;
     height: 24px;
     left: 56px;
@@ -83,6 +83,8 @@ h2 {
     background: #FFFFFF;
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
+    visibility: visible; 
+    /* agrege */
 }
 
 #politicas {
@@ -121,6 +123,11 @@ p4 {
     cursor: pointer;
     border-radius: 0%;
     border: none;
+}
+
+.showWindow{
+    right: 1%;
+    margin-left: 2%;
 }
 
 @media screen and (min-width:680px) {

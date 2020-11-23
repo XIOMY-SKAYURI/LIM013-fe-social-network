@@ -8,7 +8,7 @@ export default () => {
   <form>
   <div class='logIn'>
   <figure> 
- <img class="logo" src="imagenes/BUSCAR.jpeg">
+ <img class="logo" src="imagenes/BUSCAR.jpg">
  </figure>
  <h1><b> BIENVENIDO A  RESEARCH EASY</b></h1>
  <input type='email' class='SingIn1' placeholder='  correo electrónico'>
@@ -16,14 +16,14 @@ export default () => {
  <a href="#" class='forgot'>¿Olvidates tu contraseña?</a>
  <button id='login' class='login'>Iniciar sesión</button>
  <p1>or</p1>
- <button id='google'><img class="logogoogle" src="imagenes/google.png"> Continuar con google</button>
+ <button id='google'><img class="logogoogle" src="imagenes/google.jpg"> Continuar con google</button>
  <div class='containerCrear'>
  <p2>¿Nuevo en Research Easy?</p2>
  <a href="#/signUp" class = 'registrate'>Crea una cuenta aquí </a>
     </div>
     </div>
     <figure>
-    <img class="universitarios" src="imagenes/universitarios.jpeg">
+    <img class="universitarios" src="imagenes/universitarios.jpg">
     </figure>
     </form>
 `;

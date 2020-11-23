@@ -38,12 +38,12 @@ h1 {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 200px;
+    font-size: 20px;
     text-align: center;
     color: #000000;
     margin-bottom: 30px;
 }
-
+/* correo */
 .SingIn1 {
     margin: 10px;
     width: 320px;
@@ -60,7 +60,7 @@ h1 {
     text-align: left;
     color: white;
 }
-
+/* password */
 .SingIn2 {
     margin: 10px;
     width: 320px;
@@ -181,7 +181,8 @@ p2 {
     height: 155px;
 }
 
-@media screen and (min-width:680px) {
+/* cuando apartir de un acho de 680 todo las etiquetas se adapten al deskotp */
+@media screen and (min-width:680px) { 
     form {
         display: flex;
         flex-direction: row-reverse;
