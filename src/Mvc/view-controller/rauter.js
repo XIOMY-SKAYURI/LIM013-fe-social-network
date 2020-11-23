@@ -22,5 +22,6 @@ export const changeTmp = (hash) => {
     default:
       return container.appendChild(components.Different());
   }
+
   return changeTmp;
 };

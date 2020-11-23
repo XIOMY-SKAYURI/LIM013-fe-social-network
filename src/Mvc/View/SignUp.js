@@ -4,6 +4,7 @@ import { createUser } from '../firebase/firebase-Auth.js';
 //  ----------------Función que mostrará contenido de vista Sign Up (Registro)-------------//
 // exportamos al archivo index de la misma carpeta 'view'
 
+
 export default () => {
   const viewSignUp = document.createElement('div');
   viewSignUp.classList.add('view-SignUp');
@@ -12,7 +13,6 @@ export default () => {
       <figure>
 <img class="investigacion" src="imagenes/investigacion.png">
 </figure>
-<form id='formRegistro'>
 <div id='titulo'>
 <figure>
 <img class="linea" src="imagenes/linea.png">
@@ -41,14 +41,14 @@ export default () => {
    <input type="checkbox" id='check' name="check">
    <p4>Al crear una cuenta en Research Easy, acepta cumplir con nuestros términos, condiciones de servicio y código de honor y acepta nuestras políticas.</p4>
    </div>
-   <button type='button' id='SignUp' class='register'>Crear cuenta</button>
+   <button type='submit' id='SignUp' class='register'>Crear cuenta</button>
    </form>
    </section>
   `;
   // -------------------------Función retorna a vista signIn-------------------------------------//
   const btn = viewSignUp.querySelector('#SignUp');
   btn.addEventListener('click', () => { window.location.hash = ''; });
-
+  // console.log(btn);
 
   // ----------------------------Función que almacenará el mensaje-----------------------------//
   const Message = (text) => {
@@ -56,6 +56,7 @@ export default () => {
     showScreen.classList.add('showScreen');
     showScreen.textContent = text;
     document.body.appendChild(showScreen);
+    // console.log(showScreen);
     setTimeout(() => {
       document.body.removeChild(showScreen);
     }, 4000);
@@ -64,7 +65,8 @@ export default () => {
   // remueve el cuadro de alerta después de 4 segundos (4000 milisegundos)
 
   // -------------------------Función para crear usuario-------------------------------------//
-  const formRegistro = viewSignUp.querySelector('#formRegistro').value; // agrege
+  const formRegistro = viewSignUp.querySelector('#formRegistro'); // agrege
+  // console.log(formRegistro);
   formRegistro.addEventListener('submit', (e) => {
     e.preventDefault(); // cancela el evento
     const name = viewSignUp.querySelector('#name').value;
@@ -101,4 +103,5 @@ export default () => {
 
 // querySelector() te devolvera el primer elemento que cumpla la condicion que especifiques
 // QuerySelectorAll: selecciona todas las coincidencias y las retorna en un array
+
 // getElementById() tienes que hacer referencia a un elemento que tenga un id unico
