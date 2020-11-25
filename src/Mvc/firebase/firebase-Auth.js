@@ -6,6 +6,13 @@ export const createUser = (email, password) => {
   return authentication.createUserWithEmailAndPassword(email, password);
 };
 
-// export const newUser = (email, password) => {
-//   return firebase.auth().createUserWithEmailAndPassword(email, password);
-// };
+export const signIn = (email, pass) => {
+  const auth = firebase.auth();
+  return auth.signInWithEmailAndPassword(email, pass);
+};
+
+// --------------------Funcion para registrase con google-------
+export const signInGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  return firebase.auth().signInWithPopup(provider);
+};

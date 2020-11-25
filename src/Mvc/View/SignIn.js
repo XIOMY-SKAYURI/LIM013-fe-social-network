@@ -1,12 +1,9 @@
-//  ----------------Función que mostrará contenido de vista Sign In (iniciar secion)-------------//
-// exportamos al archivo index de la misma carpeta 'vistas'
-// import { newUser } from '../firebase/firebase-Auth.js';
+import { signIn, signInGoogle } from '../firebase/firebase-Auth.js';
 
 export default () => {
   const viewSignIn = document.createElement('div');
   // viewSignIn.classList.add('position');
   viewSignIn.innerHTML = `
-
     <form>
     <div class='logIn'>
     <div class='ocultar'>
@@ -21,15 +18,13 @@ export default () => {
    </figure>
    <h1><b> BIENVENIDO A  RESEARCH EASY</b></h1>
    <input type='email' class='SingIn1' placeholder='  correo electrónico'>
-   
    <input type="password" class='SingIn2' placeholder='  contraseña'  >
-   
    <a href="#" class='forgot'>¿Olvidates tu contraseña?</a>
    <button id='login' class='login'>Iniciar sesión</button>
-   <p1>or</p1>
+   <p1 class='p1'>or</p1>
    <button id='google' class='ingresargoogle'><img class="logogoogle" src="imagenes/google.jpg"> Continuar con google</button>
    <div class='containerCrear'>
-   <p2>¿Nuevo en Research Easy?</p2>
+   <p2 class='p2'>¿Nuevo en Research Easy?</p2>
    <a href="#/signUp" class = 'registrate'>Crea una cuenta aquí </a>
       </div>
       </div>
@@ -48,14 +43,13 @@ export default () => {
     e.preventDefault();
     const email = txtEmail.value;
     const pass = txtPassword.value;
-    const auth = firebase.auth();
-    const promise = auth.signInWithEmailAndPassword(email, pass);
-    promise
+    // const auth = firebase.auth();
+    // const promise = auth.signInWithEmailAndPassword(email, pass);
+    signIn(email, pass)
       .then(() => { window.location.hash = '#/Home'; })
       .catch((error) => {
       // Handle Errors here.
         const errorCode = error.code;
-
         if (errorCode === 'auth/wrong-password') {
           aviso.classList.remove('ocultar');
           document.getElementById('mensajePass').innerHTML = '*Contraseña incorrecta';
@@ -67,6 +61,15 @@ export default () => {
           document.getElementById('mensajeEmail').innerHTML = '*Esta cuenta no existe en RESEARCH EASY.Indicar otra o crear una nueva';
         }
         // console.log(error);
+      });
+  });
+  // Maneja el flujo de acceso con el SDK de Firebase
+  const ingresarGoogle = viewSignIn.querySelector('.ingresargoogle');
+  ingresarGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    signInGoogle()
+      .then(() => {
+        window.location.hash = '#/Home';
       });
   });
   return viewSignIn;
