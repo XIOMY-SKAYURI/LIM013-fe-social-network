@@ -39,7 +39,7 @@ form {
 h1 {
     width: 340px;
     height: 28px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -58,7 +58,7 @@ h1 {
     opacity: 0.3;
     box-sizing: border-box;
     border-radius: 10px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -75,7 +75,7 @@ h1 {
     opacity: 0.3;
     box-sizing: border-box;
     border-radius: 10px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -87,7 +87,7 @@ h1 {
 .forgot {
     margin-top: 0px;
     margin-bottom: 20px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
   
     font-size: 12px;
@@ -135,7 +135,7 @@ margin: 5px;
 .aviso{
     color: black;
     font-size: 12px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
    padding-right: 20px;
    padding-left: 20px;
     margin:5px;
@@ -147,7 +147,7 @@ margin: 5px;
     height: 45px;
     background-color: #FF5733;
     border-radius: 10px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -156,12 +156,12 @@ margin: 5px;
     cursor: pointer;
 }
 
-p1 {
+.p1 {
     width: 17px;
     height: 21px;
     left: 194px;
     top: 397px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -177,7 +177,7 @@ p1 {
     /* top: 435px; */
     background-color: #3364FF;
     border-radius: 10px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -206,10 +206,10 @@ p1 {
     align-content: center;
 }
 
-p2 {
-    font-family: Roboto;
+.p2 {
+    /* font-family: Roboto; */
     font-style: normal;
-    font-weight: normal;
+    /* font-weight: normal; */
     font-size: 13px;
     text-align: center;
     color: #000000;
@@ -219,9 +219,9 @@ p2 {
 
 .registrate {
     margin: 2px;
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
-    font-weight: normal;
+    /* font-weight: normal; */
     font-size: 13px;
     text-align: center;
     color: #339CFF;
@@ -259,16 +259,18 @@ p2 {
         margin-bottom: 50px;
     }
     .SingIn1 {
-        margin-top: 20px;
         margin: 12px;
+        margin-top: 20px;
+        
         width: 489px;
         height: 57px;
         font-size: 24px;
     }
 
     .SingIn2 {
-        margin-top: 20px;
         margin: 12px;
+        margin-top: 20px;
+        
         width: 489px;
         height: 57px;
         font-size: 24px;
@@ -279,11 +281,7 @@ p2 {
         margin-right: 65%;
     }
 
-  
-       
-        
-       
-        h3{
+          h3{
        
             font-size: 20px;
          
@@ -306,7 +304,7 @@ p2 {
         height: 50px;
         font-size: 24px;
     }
-    p1 {
+    .p1 {
         font-size: 24px;
     }
     #google {
@@ -322,7 +320,7 @@ p2 {
         height: 70px;
         width: 300px;
     }
-    p2 {
+    .p2 {
         font-size: 18px;
     }
     .registrate {
