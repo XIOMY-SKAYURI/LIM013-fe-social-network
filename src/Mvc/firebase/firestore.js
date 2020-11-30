@@ -1,41 +1,52 @@
-// ----------------------Función crea collecion de usuario -----------------------------------//
-export const userCollection = (idDoc, username, emailUser, userPhotoUrl) => firebase.firestore().collection('users').doc(idDoc).set({
+// ----------------------Función crea coleccion de usuario -----------------------------------//
+export const userCollection = (idDoc, username, emailUser, PhotoUser) => firebase.firestore().collection('users').doc(idDoc).set({
   name: username,
   email: emailUser,
   uid: idDoc,
-  photoUrl: userPhotoUrl,
+  photoUrl: PhotoUser,
 });
-  // .then(function() {
-  //    console.log("Document successfully written!");
-  // });
-  // .catch(function(error) {
-  //   console.error("Error writing document: ", error);
-  // });
 
 // Metodo set Para crear o reemplazar un solo documento
 // cuando usa set para crear un documento especificar un ID para el documento que vas a crear.
 
 // ----------------------Función crea collecion para postear -----------------------------------//
-export const createPost = (uid, createNote, photoUser, imgPost) => firebase.firestore().collection('pots').add({
+export const Post = (uid, username, createNote, date, photoUser) => firebase.firestore().collection('pots').add({
   userID: uid,
+  name: username,
   note: createNote,
+  date,
   photo: photoUser,
-  likesCount: 0,
-  img: imgPost,
 });
+
 // a veces no hay un ID significativo para el documento y es más conveniente
 // dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add():
 
+
+// iud current user
+// foto current user
+// -----------------------------Función eliminar post----------------------------------------//
+export const deleteNote = idNote => firebase.firestore().collection('pots').doc(idNote).delete();
+
+
 // ----------------------Función obtener Obténer actualizaciones----------------------------------//
+
+export const readAddNotes = callback => firebase.firestore()
+  .collection('pots').onSnapshot((querySnapShot) => {
+    const data = [];
+    querySnapShot.forEach((doc) => {
+      data.push({
+        userID: doc.id,
+        name: doc.data().userID,
+        note: doc.data().note,
+        date: doc.data().date,
+        photo: doc.data().photo,
+      });
+    });
+    callback(data);
+  });
 
 // método onSnapshot(). Una llamada inicial con la devolución de llamada que proporcionas crea una
 // instantánea del documento de inmediato con los contenidos actuales de ese documento.
 
-// db.collection("cities").where("state", "==", "CA")
-//     .onSnapshot(function(querySnapshot) {
-//         var cities = [];
-//         querySnapshot.forEach(function(doc) {
-//             cities.push(doc.data().name);
-//         });
-//         console.log("Current cities in CA: ", cities.join(", "));
-//     });
+// callbackfn es un funcion como parametro lo mando
+// .orderBy('date', 'desc')

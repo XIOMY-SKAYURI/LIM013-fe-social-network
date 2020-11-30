@@ -1,7 +1,6 @@
 
-import { createUser } from '../firebase/firebase-Auth.js';
+import { createUser, getUser } from '../firebase/firebase-Auth.js';
 import { userCollection } from '../firebase/firestore.js';
-
 
 // ---------------------Función que almacenara el mensaje----------------------
 const Message = (text) => {
@@ -12,7 +11,7 @@ const Message = (text) => {
   document.body.appendChild(showScreen);
 };
 
-
+const userProfilePicByDefault = '../imagenes/avatar.jpeg';
 export const ClickSinUp = (e) => {
   e.preventDefault();
   const name = document.querySelector('#name').value;
@@ -38,7 +37,12 @@ export const ClickSinUp = (e) => {
       .then((result) => {
         // console.log(result);
         Message('Gracias por registarte');
-        userCollection(result.user.uid, name, email, '')
+        const CurrentUser = getUser();
+        CurrentUser.updateProfile({
+          displayName: name,
+          PhotoURL: userProfilePicByDefault,
+        });
+        userCollection(result.user.uid, name, email)
           .then(() => { window.location.hash = '#/Home'; });
       })
       .catch(() => {
@@ -46,3 +50,8 @@ export const ClickSinUp = (e) => {
       });
   }
 };
+
+// name: username,
+// email: emailUser,
+// uid: idDoc,
+// photoUrl: PhotoUser,
