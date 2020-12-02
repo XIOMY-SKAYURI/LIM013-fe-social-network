@@ -1,4 +1,4 @@
-import { Post, deleteNote, getDocId } from '../firebase/firestore.js';
+import { Post, deleteNote } from '../firebase/firestore.js';
 
 // --------------------------------------Función--------------------------------------------//
 
@@ -28,16 +28,16 @@ export const deletePost = (idDoc) => {
     });
 };
 
-export const editPost = (idDoc) => {
-  // const id = e.target.dataset.uid;
-  getDocId(idDoc)
-    .then(() => {
-      console.log('documento editado con exito!');
-    })
-    .catch((error) => {
-      console.error('error al editar ', error);
-    });
-};
+// export const editPost = (idDoc) => {
+//   // const id = e.target.dataset.uid;
+//   getDocId(idDoc)
+//     .then(() => {
+//       console.log('documento editado con exito!');
+//     })
+//     .catch((error) => {
+//       console.error('error al editar ', error);
+//     });
+// };
 
 
 // userID: uid,

@@ -26,7 +26,7 @@ export const deleteNote = idDoc => firebase.firestore().collection('pots').doc(i
 
 // --------editar-------------
 
-export const getDocId = idDoc => firebase.firestore().collection('pots').doc(idDoc).get();
+// export const getDocId = idDoc => firebase.firestore().collection('pots').doc(idDoc).get();
 
 // método onSnapshot(). Una llamada inicial con la devolución de llamada que proporcionas crea una
 // instantánea del documento de inmediato con los contenidos actuales de ese documento.

@@ -1,4 +1,4 @@
-import { createAddNote, deletePost, editPost } from '../firesbase-controller/home-controller.js';
+import { createAddNote, deletePost } from '../firesbase-controller/home-controller.js';
 import { onGetPost } from '../firebase/firestore.js';
 import { getUser, signOut } from '../firebase/firebase-Auth.js';
 
@@ -165,13 +165,14 @@ export default () => {
           });
         });
 
-        const btneditar = divElemt.querySelectorAll('.btneditar');
-        btneditar.forEach((boton) => {
-          boton.addEventListener('click', (e) => {
-            console.log(e.target.dataset.id);
-            console.log(editPost(e.target.dataset.id));
-          });
-        });
+        // const btneditar = divElemt.querySelectorAll('.btneditar');
+        // btneditar.forEach((boton) => {
+        //   boton.addEventListener('click', (e) => {
+        //     console.log(e.target.dataset.id);
+        //     const docEdit = editPost(e.target.dataset.id);
+        //     console.log(docEdit.data());
+        //   });
+        // });
       });
     });
   };
