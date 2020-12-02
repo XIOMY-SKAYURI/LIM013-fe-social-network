@@ -19,21 +19,18 @@ export default () => {
       <p7 class='p7'>RESEARCH EASY<p7>
      </figure>
   </header>
-
   <section class='sectionHome'>
-
     <div class='containerInfoUser'>
-     <img   class='foto' src="imagenes/usuario2.jpg">
+    <img   class='foto' src='${user.photoURL}'>
       <div class='namePencil'>
-
        <p8 class='p8'>${user.displayName}</p8>
        <img class='lapiz' src="imagenes/lapiz.png">
       </div>
  
-    <p9 class='p9' >hola soy juana flores y me  gusta mucho la ciencia y bla bla bla. bña blabla bla bla blab bla bla bla bla bla bla.....  </p9>
+      <p9 class='p9' >Hola soy ${user.displayName} y me  gusta mucho la ciencia  </p9>
+ 
  
       <div class='containerDetalles'>
-
              <button id='infoGeneral' ><img class='icoInfo' src="imagenes/ubicacion.png"></button>
         <a href="#" class='tituloIcon'>Madrid, España</a>
         <button id='infoGeneral' ><img class='icoInfo' src="imagenes/academic.png"></button>
@@ -44,13 +41,12 @@ export default () => {
     </div>
   
     <div class='containerSubir'>
-      <img   class='foto1' src="imagenes/usuario2.jpg">
+    <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
       <textarea id="compartirSubir" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
       <button id='publicar' class='icoPostGeneral' >Publicar</button>
       
       
-
       <div class='botonesSubir'>
       <button id='icoSubir' ><img class='icoInfo' src="imagenes/video.png"></button>
       <button id='icoSubir' ><img class='icoInfo' src="imagenes/camara.png"></button>
@@ -58,26 +54,22 @@ export default () => {
       </div>
       </div>
     </div>
-
     <div class='containerPosteado'>
-
       <div class='containerPosteadoUsuario'>
       <div class='posteadoUsuario'>
-      <img   class='fotos' src="imagenes/usuario2.jpg">
-      <p8 class='p8'>Juana Flores</p8>
+      <img   class='foto' src='${user.photoURL}'>
+      <p8 class='p8'>${user.displayName}</p8>
     </div>
   
     </div>
-
     <div class='containerPosteadoImg'>
       <img   class='lineas' src="imagenes/linea.png">
       <img   class='imagenEjemplo' src="imagenes/home.png">
       <div id='containerPost'>  </div>
       <img   class='lineas' src="imagenes/linea.png">
     </div>
-
     <div class='containerSubir'>
-      <img   class='fotos' src="imagenes/usuario2.jpg">
+    <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
         <textarea id="postear" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
       <div class='botonespostear'>
@@ -89,13 +81,11 @@ export default () => {
     </div>
     </div>
     </div>
-
     <div>
   <button class='cerrarsesión'>Cerrar sesión</button>
   </div>
   </section>
   
-
   <footer>
   <p11 class='p11'>Privacidad  · Condiciones  · Publicidad  · Opciones de anuncios   · Cookies  · 
   · RESEARCH EASY © 2020 . KATY HUAMANITITO & XIOMY GARCIA <p11>
@@ -126,7 +116,7 @@ export default () => {
         user.displayName,
         postText,
         date,
-        // user.PhotoURL,
+        user.PhotoURL,
       );
     }
     // btnEnviar.reset();
@@ -144,9 +134,12 @@ export default () => {
           name: doc.data().userID,
           note: doc.data().note,
           date: doc.data().date,
+          // date: doc.data().photo,
           // photo: doc.data().photo,
         });
         console.log(data);
+
+        // que me de la propiedad Id para eliminar o borrar con el ID de cada post
         const infoDoc = doc.data();
         infoDoc.id = doc.id;
 

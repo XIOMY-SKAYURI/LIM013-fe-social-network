@@ -42,7 +42,7 @@ export const ClickSinUp = (e) => {
           displayName: name,
           PhotoURL: userProfilePicByDefault,
         });
-        userCollection(result.user.uid, name, email)
+        userCollection(result.user.uid, name, email, userProfilePicByDefault)
           .then(() => { window.location.hash = '#/Home'; });
       })
       .catch(() => {

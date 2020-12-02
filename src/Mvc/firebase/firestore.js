@@ -1,9 +1,9 @@
 // ----------------------Función crea coleccion de usuario -----------------------------------//
-export const userCollection = (idDoc, username, emailUser) => firebase.firestore().collection('users').doc(idDoc).set({
+export const userCollection = (idDoc, username, emailUser, userPhoto) => firebase.firestore().collection('users').doc(idDoc).set({
   name: username,
   email: emailUser,
   uid: idDoc,
-
+  photoUrl: userPhoto,
 });
 
 
@@ -17,6 +17,7 @@ export const Post = (uid, username, createNote, date) => firebase.firestore().co
   name: username,
   note: createNote,
   date,
+  // photo: photoUser,
 
 });
 // ------Mostrar cambios en tiempo real-----
