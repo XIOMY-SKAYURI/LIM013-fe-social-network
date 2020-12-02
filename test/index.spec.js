@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import { signIn, createUser, signInGoogle } from '../src/Mvc/firebase/firebase-Auth.js';
 
+=======
+
+import { signIn, createUser } from '../src/Mvc/firebase/firebase-Auth.js';
+
+>>>>>>> 9dbd68a9b701bd2180c858fbb0016d0d5ac6a492
 // configurando firebase mock
 const firebasemock = require('firebase-mock');
 
@@ -15,7 +21,10 @@ global.firebase = firebasemock.MockFirebaseSdk(
   // () => mockfirestore
 );
 
+<<<<<<< HEAD
 //
+=======
+>>>>>>> 9dbd68a9b701bd2180c858fbb0016d0d5ac6a492
 
 describe('Sign In ', () => {
   it('Deberia poder iniciar sesión', () => signIn('carlos@gmail.com', '1234567')
@@ -24,6 +33,10 @@ describe('Sign In ', () => {
     }));
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9dbd68a9b701bd2180c858fbb0016d0d5ac6a492
 describe('createUser', () => {
   it('Debería poder crear un nuevo usuario', (done) => {
     createUser('ana@gmail.com', '1234567').then((newUser) => {
@@ -31,6 +44,7 @@ describe('createUser', () => {
       expect(newUser.isAnonymous).toBe(false);
       done();
     });
+<<<<<<< HEAD
   });
 });
 
@@ -43,5 +57,7 @@ describe('signInGoogle', () => {
       .then((user) => {
         expect(user.email).toBe('carlos@gmail.com');
       });
+=======
+>>>>>>> 9dbd68a9b701bd2180c858fbb0016d0d5ac6a492
   });
 });

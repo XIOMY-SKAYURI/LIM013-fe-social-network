@@ -1,4 +1,6 @@
-import { ClickSinUp } from '../firebase-controller/SignUp-controller.js';
+
+import { ClickSinUp } from '../firesbase-controller/SignUp-controller.js';
+
 // ---------------------Función que almacenara el mensaje----------------------
 
 export default () => {

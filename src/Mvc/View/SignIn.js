@@ -1,4 +1,5 @@
 import { signIn, signInGoogle } from '../firebase/firebase-Auth.js';
+// import { readAddNotes } from '../firebase/firestore.js';
 
 export default () => {
   const viewSignIn = document.createElement('div');
@@ -46,7 +47,10 @@ export default () => {
     // const auth = firebase.auth();
     // const promise = auth.signInWithEmailAndPassword(email, pass);
     signIn(email, pass)
-      .then(() => { window.location.hash = '#/Home'; })
+      .then(() => {
+        window.location.hash = '#/Home';
+        // readAddNotes();
+      })
       .catch((error) => {
       // Handle Errors here.
         const errorCode = error.code;
@@ -70,6 +74,7 @@ export default () => {
     signInGoogle()
       .then(() => {
         window.location.hash = '#/Home';
+        // readAddNotes();
       });
   });
   return viewSignIn;

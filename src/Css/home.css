@@ -1,4 +1,3 @@
-
 .sectionHome {
     margin: auto;
     background-color: #EEEDEB;
@@ -78,31 +77,31 @@ color: #A2A2A2;
         height: 15px;
     }
 
-    .p9{
- 
-        margin-top: 5px;
+    .containerPost{
+        display: flex;
+        flex-direction: column;
+        background-color: #EEEDEB;
+        margin-top: 10px;
         padding-bottom: 10px; 
         margin-left: 40px;
         margin-right: 40px;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 9px;   
-        color:black;
-            
+           
+               
         }
 
-
+    .iconos{
+        display: flex;
+        justify-content: baseline;
+        
+    
+    }    
 
 
     .containerDetalles{
 margin: 10px;
     }
 
-    .tituloIcon{
-        font-size: 9px;
-color: #8D8D8D;
-text-decoration: none;
-    }
+   
 
 #infoGeneral{
     height: 17px;
@@ -136,7 +135,7 @@ text-decoration: none;
         
     }
 
-    #icoPostGeneral{
+    .icoPostGeneral{
         width: 80px;
         font-size: 10px;
         background-color: yellowgreen;
@@ -185,17 +184,18 @@ text-decoration: none;
         margin-bottom: 8px;
     }
 
-    #icoSubir{
+    #icono{
         height: 23px;
     width: 23px;
-    background-size: 21px 21px;
+  margin: 10px;
     cursor: pointer;
     border: none;
     background-repeat: no-repeat;
     background-position: center;
+    font-size: 8px;
+        color: #8D8D8D;
+        
   
-    background-color: white;
-    margin:10px;
     }
 
 .containerPosteado{
@@ -275,7 +275,7 @@ text-decoration: none;
 }
 
 .icoPostear{
-    background-color: white;
+    
     width: 10px;
 }
 
@@ -288,6 +288,7 @@ footer{
 .p11{ color: black;
     font-size: 9px;
     margin-top: 30px;
+
 }
 
 .cerrarsesión{
@@ -298,4 +299,5 @@ footer{
     cursor: pointer;
 
 }
+
 
