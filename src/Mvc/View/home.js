@@ -1,5 +1,5 @@
-import { createAddNote } from '../firesbase-controller/home-controller.js';
-// import { userCollection } from '../firebase/firestore.js';
+import { createAddNote, deletePost } from '../firesbase-controller/home-controller.js';
+import { onGetPost } from '../firebase/firestore.js';
 import { getUser, signOut } from '../firebase/firebase-Auth.js';
 
 //  --------------------------Función que mostrará contenido de vista home------------------------//
@@ -7,6 +7,7 @@ import { getUser, signOut } from '../firebase/firebase-Auth.js';
 // src="imagenes/usuario2.jpg"
 // src="${user.photo}"
 // ${user.name}
+
 export default () => {
   // creamos un nuevo elemento div  y agregamos  viewHome
   const user = getUser();
@@ -17,25 +18,20 @@ export default () => {
       <img class="logohome" src="imagenes/BUSCAR.jpg">
       <p7 class='p7'>RESEARCH EASY<p7>
      </figure>
-     <div>
-     <button class='cerrarsesión'>Cerrar sesión</button>
-     </div>
   </header>
-
   <section class='sectionHome'>
-
-  <div class='containerInfoUser'>
-      <img   class='foto' src='${user.photoURL}'>
-       <div class='namePencil'>
-        <p8 class='p8'>${user.displayName}</p8>
-        <img class='lapiz' src="imagenes/lapiz.png">
-       </div>
+    <div class='containerInfoUser'>
+    <img   class='foto' src='${user.photoURL}'>
+      <div class='namePencil'>
+       <p8 class='p8'>${user.displayName}</p8>
+       <img class='lapiz' src="imagenes/lapiz.png">
+      </div>
  
-    <p9 class='p9' >Hola soy ${user.displayName} y me  gusta mucho la ciencia  </p9>
+      <p9 class='p9' >Hola soy ${user.displayName} y me  gusta mucho la ciencia  </p9>
+ 
  
       <div class='containerDetalles'>
-
-        <button id='infoGeneral' ><img class='icoInfo' src="imagenes/ubicacion.png"></button>
+             <button id='infoGeneral' ><img class='icoInfo' src="imagenes/ubicacion.png"></button>
         <a href="#" class='tituloIcon'>Madrid, España</a>
         <button id='infoGeneral' ><img class='icoInfo' src="imagenes/academic.png"></button>
         <a href="#" class='tituloIcon'>estudiante, medicina</a>
@@ -45,13 +41,12 @@ export default () => {
     </div>
   
     <div class='containerSubir'>
-      <img   class='foto' src='${user.photoURL}'>
+    <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
       <textarea id="compartirSubir" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
-      <button id='icoPostGeneral' >Publicar</button>
-      <button id='icoPostGeneral' >Editar</button>
-      <button id='icoPostGeneral' >Borrar</button>
-
+      <button id='publicar' class='icoPostGeneral' >Publicar</button>
+      
+      
       <div class='botonesSubir'>
       <button id='icoSubir' ><img class='icoInfo' src="imagenes/video.png"></button>
       <button id='icoSubir' ><img class='icoInfo' src="imagenes/camara.png"></button>
@@ -59,9 +54,7 @@ export default () => {
       </div>
       </div>
     </div>
-
     <div class='containerPosteado'>
-
       <div class='containerPosteadoUsuario'>
       <div class='posteadoUsuario'>
       <img   class='foto' src='${user.photoURL}'>
@@ -69,35 +62,30 @@ export default () => {
     </div>
   
     </div>
-
     <div class='containerPosteadoImg'>
       <img   class='lineas' src="imagenes/linea.png">
       <img   class='imagenEjemplo' src="imagenes/home.png">
-      <p9 class='p9' >aqui les dejo info sobre los ... </p9>
+      <div id='containerPost'>  </div>
       <img   class='lineas' src="imagenes/linea.png">
     </div>
-
     <div class='containerSubir'>
-      <img   class='foto' src='${user.photoURL}'>
+    <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
         <textarea id="postear" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
       <div class='botonespostear'>
         <button id='icoSubir' ><img class='icoPostear' src="imagenes/enviar.png"></button>
         <a href="#" class='tituloIcon'>subir</a>
-        <button id='icoSubir' ><img class='icoPostear' src="imagenes/lapiz.png"></button>
-        <a href="#" class='tituloIcon'>editar</a>
-        <button id='icoSubir' ><img class='icoPostear' src="imagenes/TACHO.png"></button>
-        <a href="#" class='tituloIcon'>borrar</a>
+        
       </div>
       </div>
     </div>
     </div>
     </div>
-
-  
+    <div>
+  <button class='cerrarsesión'>Cerrar sesión</button>
+  </div>
   </section>
   
-
   <footer>
   <p11 class='p11'>Privacidad  · Condiciones  · Publicidad  · Opciones de anuncios   · Cookies  · 
   · RESEARCH EASY © 2020 . KATY HUAMANITITO & XIOMY GARCIA <p11>
@@ -105,7 +93,6 @@ export default () => {
         `;
 
   // ---------------------Función para cerrar sesion-------------------//
-
   const cerrarsesión = divElemt.querySelector('.cerrarsesión');
   cerrarsesión.addEventListener('click', (e) => {
     e.preventDefault();
@@ -114,11 +101,13 @@ export default () => {
         window.location.hash = '';
       });
   });
-
   // ------------------Función que crea nota--------------------------------//
-  const btnEnviar = divElemt.querySelector('#icoPostGeneral');
+
+
+  const btnEnviar = divElemt.querySelector('#publicar');
   // readAddNotes
-  btnEnviar.addEventListener('click', () => {
+  btnEnviar.addEventListener('click', (e) => {
+    e.preventDefault();
     const postText = divElemt.querySelector('#compartirSubir').value;
     const date = new Date(); // crea objeto fecha
     if (postText !== '') {
@@ -127,9 +116,70 @@ export default () => {
         user.displayName,
         postText,
         date,
-        user.photoURL,
+        user.PhotoURL,
       );
     }
+    // btnEnviar.reset();
   });
+
+  // ------Mostrar data-----
+  const changes = () => {
+    onGetPost((querySnapshot) => {
+      const mostrarPost = divElemt.querySelector('#containerPost');
+      mostrarPost.innerHTML = '';
+      const data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({
+          userID: doc.id,
+          name: doc.data().userID,
+          note: doc.data().note,
+          date: doc.data().date,
+          // date: doc.data().photo,
+          // photo: doc.data().photo,
+        });
+        console.log(data);
+
+        // que me de la propiedad Id para eliminar o borrar con el ID de cada post
+        const infoDoc = doc.data();
+        infoDoc.id = doc.id;
+
+        mostrarPost.innerHTML += `<div class='containerPost'> <p9> ${doc.data().note} </p9> 
+                <div class='iconos'>
+                <button id='icono' class='btneditar' data-id='${infoDoc.id}' ><img class='icoPostear' src="imagenes/lapiz.png">editar</button>
+                <button id='icono' class='btndelete' data-id='${infoDoc.id}' ><img class='icoPostear' src="imagenes/TACHO.png">borrar</button>
+                </div>
+                </div>`;
+
+        const btnDelete = divElemt.querySelectorAll('.btndelete');
+        btnDelete.forEach((boton) => {
+          boton.addEventListener('click', (e) => {
+            console.log(e.target.dataset.id);
+            deletePost(e.target.dataset.id);
+          });
+        });
+
+        // const btneditar = divElemt.querySelectorAll('.btneditar');
+        // btneditar.forEach((boton) => {
+        //   boton.addEventListener('click', (e) => {
+        //     console.log(e.target.dataset.id);
+        //     const docEdit = editPost(e.target.dataset.id);
+        //     console.log(docEdit.data());
+        //   });
+        // });
+      });
+    });
+  };
+  changes();
+
+
+  // ------------------Función eliminar nota--------------------------------//
+
+  //   const btnBorrar = divElemt.querySelector('#borrar');
+  //   btnBorrar.addEventListener('click', (e) => {
+  //     e.stopPropagation();
+  //     const id = Post.getAttribute("data-id");
+  //       console.log(id);
+  //     // deletePost();
+  //   });
   return divElemt;
 };

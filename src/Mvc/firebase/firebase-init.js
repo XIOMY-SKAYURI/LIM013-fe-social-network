@@ -1,4 +1,3 @@
-
 export const firebaseInit = () => {
   const firebaseConfig = {
     apiKey: 'AIzaSyDFhqMte9QnsAq0ZGGlf1RAU8o7aufzRjY',
@@ -13,3 +12,10 @@ export const firebaseInit = () => {
 
   firebase.initializeApp(firebaseConfig);
 };
+
+// // Initialize Cloud Firestore through Firebase
+// firebase.initializeApp({
+//   apiKey: '### FIREBASE API KEY ###',
+//   authDomain: '### FIREBASE AUTH DOMAIN ###',
+//   projectId: '### CLOUD FIRESTORE PROJECT ID ###'
+// });

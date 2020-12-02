@@ -1,3 +1,4 @@
+
 import { ClickSinUp } from '../firesbase-controller/SignUp-controller.js';
 
 // ---------------------Función que almacenara el mensaje----------------------

@@ -1,11 +1,15 @@
 import MockFirebase from 'mock-cloud-firestore';
 
+
 const fixtureData = {
   __collection__: {
-    notes: {
+    pots: {
       __doc__: {
-        abc1d: {
-          title: 'terminar la pildora',
+        abc123: {
+          note: 'testear el proyecto',
+        },
+        abc456: {
+          note: 'terminar el proyecto',
         },
       },
     },

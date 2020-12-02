@@ -6,54 +6,31 @@ export const userCollection = (idDoc, username, emailUser, userPhoto) => firebas
   photoUrl: userPhoto,
 });
 
+
 // Metodo set Para crear o reemplazar un solo documento
 // cuando usa set para crear un documento especificar un ID para el documento que vas a crear.
 
 // ----------------------Función crea collecion para postear -----------------------------------//
-export const Post = (uid, username, createNote, date, photoUser) => firebase.firestore().collection('post').add({
+
+export const Post = (uid, username, createNote, date) => firebase.firestore().collection('pots').add({
   userID: uid,
   name: username,
   note: createNote,
   date,
-  photo: photoUser,
+  // photo: photoUser,
+
 });
+// ------Mostrar cambios en tiempo real-----
+export const onGetPost = callback => firebase.firestore().collection('pots').onSnapshot(callback);
+// -----------------------------Función eliminar post----------------------------------------//
+export const deleteNote = idDoc => firebase.firestore().collection('pots').doc(idDoc).delete();
 
-// a veces no hay un ID significativo para el documento y es más conveniente
-// dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add():
+// --------editar-------------
 
-
-// ----------------------Función obtener Obténer actualizaciones----------------------------------//
-
-export const readAddNotes = callback => firebase.firestore()
-  .collection('post').onSnapshot((querySnapShot) => {
-    const data = [];
-    querySnapShot.forEach((doc) => {
-      data.push({
-        userID: doc.id,
-        name: doc.data().userID,
-        note: doc.data().note,
-        date: doc.data().date,
-        // photo: doc.data().photo,
-      });
-    });
-    callback(data);
-  });
-
+// export const getDocId = idDoc => firebase.firestore().collection('pots').doc(idDoc).get();
 
 // método onSnapshot(). Una llamada inicial con la devolución de llamada que proporcionas crea una
 // instantánea del documento de inmediato con los contenidos actuales de ese documento.
 
 // callbackfn es un funcion como parametro lo mando
 // .orderBy('date', 'desc')
-
-// ------------------------Función actualiza post-------------------------------------------------//
-
-export const updatePost = (idPost, newContent) => {
-  const update = firebase.firestore().collection('posts').doc(idPost);
-  return update.update({
-    content: newContent,
-  });
-};
-
-// -----------------------------Función eliminar post----------------------------------------//
-export const deleteNote = idNote => firebase.firestore().collection('post').doc(idNote).delete();

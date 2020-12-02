@@ -1,4 +1,5 @@
 // ----------------------------------Función para registrar nuevo usuario------------------------//
+
 // se asigna valor firebase.auth(); para evitar error en funcion
 export const createUser = (email, password) => {
   const authentication = firebase.auth();
@@ -18,10 +19,12 @@ export const signInGoogle = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
+
 // --------------------------Función para obtener el perfil de usuario--------------------------//
 export const getUser = () => firebase.auth().currentUser;
 
 // -----------------------------------------Cerrar sesión---------------------------------------//
+
 export const signOut = () => {
   const auth = firebase.auth();
   return auth.signOut();
