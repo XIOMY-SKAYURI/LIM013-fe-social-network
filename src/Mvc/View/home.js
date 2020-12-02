@@ -17,22 +17,25 @@ export default () => {
       <img class="logohome" src="imagenes/BUSCAR.jpg">
       <p7 class='p7'>RESEARCH EASY<p7>
      </figure>
+     <div>
+     <button class='cerrarsesión'>Cerrar sesión</button>
+     </div>
   </header>
 
   <section class='sectionHome'>
 
-    <div class='containerInfoUser'>
-     <img   class='foto' src="imagenes/usuario2.jpg">
-      <div class='namePencil'>
-       <p8 class='p8'>${user.displayName}</p8>
-       <img class='lapiz' src="imagenes/lapiz.png">
-      </div>
+  <div class='containerInfoUser'>
+      <img   class='foto' src='${user.photoURL}'>
+       <div class='namePencil'>
+        <p8 class='p8'>${user.displayName}</p8>
+        <img class='lapiz' src="imagenes/lapiz.png">
+       </div>
  
-    <p9 class='p9' >hola soy juana flores y me  gusta mucho la ciencia y bla bla bla. bña blabla bla bla blab bla bla bla bla bla bla.....  </p9>
+    <p9 class='p9' >Hola soy ${user.displayName} y me  gusta mucho la ciencia  </p9>
  
       <div class='containerDetalles'>
 
-             <button id='infoGeneral' ><img class='icoInfo' src="imagenes/ubicacion.png"></button>
+        <button id='infoGeneral' ><img class='icoInfo' src="imagenes/ubicacion.png"></button>
         <a href="#" class='tituloIcon'>Madrid, España</a>
         <button id='infoGeneral' ><img class='icoInfo' src="imagenes/academic.png"></button>
         <a href="#" class='tituloIcon'>estudiante, medicina</a>
@@ -42,7 +45,7 @@ export default () => {
     </div>
   
     <div class='containerSubir'>
-      <img   class='foto1' src="imagenes/usuario2.jpg">
+      <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
       <textarea id="compartirSubir" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
       <button id='icoPostGeneral' >Publicar</button>
@@ -61,8 +64,8 @@ export default () => {
 
       <div class='containerPosteadoUsuario'>
       <div class='posteadoUsuario'>
-      <img   class='fotos' src="imagenes/usuario2.jpg">
-      <p8 class='p8'>Juana Flores</p8>
+      <img   class='foto' src='${user.photoURL}'>
+      <p8 class='p8'>${user.displayName}</p8>
     </div>
   
     </div>
@@ -70,12 +73,12 @@ export default () => {
     <div class='containerPosteadoImg'>
       <img   class='lineas' src="imagenes/linea.png">
       <img   class='imagenEjemplo' src="imagenes/home.png">
-      <p9 class='p9' >aqui les dejo info sobre los huesos bla bla bla bla blablablabalablal blabla bla bla blab bla bla bla bla bla bla.....  </p9>
+      <p9 class='p9' >aqui les dejo info sobre los ... </p9>
       <img   class='lineas' src="imagenes/linea.png">
     </div>
 
     <div class='containerSubir'>
-      <img   class='fotos' src="imagenes/usuario2.jpg">
+      <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
         <textarea id="postear" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
       <div class='botonespostear'>
@@ -91,9 +94,7 @@ export default () => {
     </div>
     </div>
 
-    <div>
-  <button class='cerrarsesión'>Cerrar sesión</button>
-  </div>
+  
   </section>
   
 
@@ -126,7 +127,7 @@ export default () => {
         user.displayName,
         postText,
         date,
-        user.PhotoURL,
+        user.photoURL,
       );
     }
   });

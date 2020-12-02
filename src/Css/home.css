@@ -27,6 +27,24 @@ margin-top: 25px;
 
 }
 
+/* .cerrarsesión{
+right: 38px;
+background:rgb(92, 170, 233);
+height: 38px;
+left: 68px;
+top: 15px;
+margin-left: 20px;
+margin-top: 25px;
+} */
+
+.cerrarsesión{
+width: 80px;
+font-size: 10px;
+background-color: yellowgreen;
+border-radius: 5px;
+margin: 2px;
+}
+
 .p7{
  margin-top: 5px;
 padding-bottom: 10px;
@@ -63,14 +81,20 @@ color: #A2A2A2;
         justify-content: center;
     }
 
-.foto{
+/* .foto{
     background-color:#EEEDEB;
     border-radius: 50%;
     width: 65px;
         height: 65px;
        margin: 15px;
-}
+} */
 
+.foto{
+    width: 50px;
+    border-radius: 50%;
+    float: left;
+    margin: 5px;
+    }
 
     .lapiz{
         width: 15px;
