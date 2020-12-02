@@ -33,7 +33,7 @@ export const readAddNotes = callback => firebase.firestore()
         name: doc.data().userID,
         note: doc.data().note,
         date: doc.data().date,
-        // photo: doc.data().photo,
+        photo: doc.data().photo,
       });
     });
     callback(data);
