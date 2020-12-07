@@ -1,4 +1,6 @@
-import { Post, deleteNote } from '../firebase/firestore.js';
+import {
+  Post, deleteNote, update,
+} from '../firebase/firestore.js';
 
 // --------------------------------------Función--------------------------------------------//
 
@@ -17,6 +19,8 @@ export const createAddNote = (userID, username, note, date) => {
     });
 };
 
+// consumo la promesa deleteNote
+
 export const deletePost = (idDoc) => {
   // const id = e.target.dataset.uid;
   deleteNote(idDoc)
@@ -28,18 +32,18 @@ export const deletePost = (idDoc) => {
     });
 };
 
-// export const editPost = (idDoc) => {
-//   // const id = e.target.dataset.uid;
-//   getDocId(idDoc)
-//     .then(() => {
-//       console.log('documento editado con exito!');
-//     })
-//     .catch((error) => {
-//       console.error('error al editar ', error);
-//     });
-// };
+// consumo la promesa updatePost pasandole los 2 parámetros
 
-
+export const updatePost = (id, note) => {
+  update(id, note)
+    .then(() => {
+      console.log('Document successfully updated!');
+    })
+    .catch((error) => {
+    // The document probably doesn't exist.
+      console.error('Error updating document: ', error);
+    });
+};
 // userID: uid,
 // name: username,
 // note: createNote,

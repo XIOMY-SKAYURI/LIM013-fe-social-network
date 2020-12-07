@@ -1,4 +1,4 @@
-import { createAddNote, deletePost } from '../firesbase-controller/home-controller.js';
+import { createAddNote, deletePost, updatePost } from '../firesbase-controller/home-controller.js';
 import { onGetPost } from '../firebase/firestore.js';
 import { getUser, signOut } from '../firebase/firebase-Auth.js';
 
@@ -40,7 +40,7 @@ export default () => {
       </div>
     </div>
   
-    <div class='containerSubir'>
+    <form class='containerSubir' id='containerSubir'>
     <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
       <textarea id="compartirSubir" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
@@ -53,7 +53,7 @@ export default () => {
       <button id='icoSubir' ><img class='icoInfo' src="imagenes/doc.png"></button>
       </div>
       </div>
-    </div>
+    </form>
     <div class='containerPosteado'>
       <div class='containerPosteadoUsuario'>
       <div class='posteadoUsuario'>
@@ -65,6 +65,7 @@ export default () => {
     <div class='containerPosteadoImg'>
       <img   class='lineas' src="imagenes/linea.png">
       <img   class='imagenEjemplo' src="imagenes/home.png">
+      
       <div id='containerPost'>  </div>
       <img   class='lineas' src="imagenes/linea.png">
     </div>
@@ -110,6 +111,7 @@ export default () => {
     e.preventDefault();
     const postText = divElemt.querySelector('#compartirSubir').value;
     const date = new Date(); // crea objeto fecha
+
     if (postText !== '') {
       createAddNote(
         user.uid,
@@ -119,53 +121,76 @@ export default () => {
         user.PhotoURL,
       );
     }
-    // btnEnviar.reset();
+    // en la linea 43 le cambie el div por form o formulario para usar el rest()
+    // El método reset () restablece los valores de todos los elementos en un formulario
+    document.getElementById('containerSubir').reset();
   });
 
-  // ------Mostrar data-----
+  // -------------------------------------Mostrar leer data-----------------------//
+
   const changes = () => {
-    onGetPost((querySnapshot) => {
+    onGetPost((data) => {
       const mostrarPost = divElemt.querySelector('#containerPost');
       mostrarPost.innerHTML = '';
-      const data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({
-          userID: doc.id,
-          name: doc.data().userID,
-          note: doc.data().note,
-          date: doc.data().date,
-          // date: doc.data().photo,
-          // photo: doc.data().photo,
-        });
-        console.log(data);
+      data.forEach((doc) => {
+        // console.log(doc);
+        // console.log(doc.id);
+        // console.log(doc.note);
+        // console.log(data);
 
-        // que me de la propiedad Id para eliminar o borrar con el ID de cada post
-        const infoDoc = doc.data();
-        infoDoc.id = doc.id;
+        const divPadre = document.createElement('div');
+        divPadre.className = 'containerPost';
 
-        mostrarPost.innerHTML += `<div class='containerPost'> <p9> ${doc.data().note} </p9> 
-                <div class='iconos'>
-                <button id='icono' class='btneditar' data-id='${infoDoc.id}' ><img class='icoPostear' src="imagenes/lapiz.png">editar</button>
-                <button id='icono' class='btndelete' data-id='${infoDoc.id}' ><img class='icoPostear' src="imagenes/TACHO.png">borrar</button>
-                </div>
-                </div>`;
+        divPadre.innerHTML += ` <p id='editarPost-${doc.userID}'> ${doc.note} </p>
+                <input type="text" class='oculto' id="resultado-${doc.userID}" placeholder="">
+                        <div class='iconos'>
+                        <button  id='botoneditar-${doc.userID}' ' ><img class='icoPostear' src="imagenes/lapiz.png">editar</button>
+                        <button  id='botonsave-${doc.userID}' class='oculto'><img class='icoPostear' src="imagenes/guardar.png">guardar</button>
+                        <button  class='btndelete' id='${doc.userID}' ><img class='icoPostear' src="imagenes/TACHO.png">borrar</button>
+                        </div>
+                        `;
 
+        // --------------------------- Función para borrar --------------------------------------//
+
+        // llamo a todos los botones de borrar
         const btnDelete = divElemt.querySelectorAll('.btndelete');
+        // recorro cada botón con el foreach
         btnDelete.forEach((boton) => {
           boton.addEventListener('click', (e) => {
-            console.log(e.target.dataset.id);
+            e.preventDefault();
+            // llamo a mi función deletePost y le paso como argumento e.target.dataset.id
             deletePost(e.target.dataset.id);
           });
         });
 
-        // const btneditar = divElemt.querySelectorAll('.btneditar');
-        // btneditar.forEach((boton) => {
-        //   boton.addEventListener('click', (e) => {
-        //     console.log(e.target.dataset.id);
-        //     const docEdit = editPost(e.target.dataset.id);
-        //     console.log(docEdit.data());
-        //   });
+
+        // --------------------------- Función para editar ------------------------------------
+        // llamo a mi boton editar guardar y al párrafo que quiero editar
+        const btnEdit = divPadre.querySelector(`#botoneditar-${doc.userID}`);
+        const btnguardar = divPadre.querySelector(`#botonsave-${doc.userID}`);
+        const ocultarPost = divPadre.querySelector(`#editarPost-${doc.userID}`);
+
+        btnEdit.addEventListener('click', () => {
+          // remuevo al boton guardar y al input donde se va a editar
+          btnguardar.classList.remove('oculto');
+          const inputEditando = divPadre.querySelector(`#resultado-${doc.userID}`);
+          // console.log(inputEditando);
+          inputEditando.classList.remove('oculto');
+          // oculto al parrafo
+          ocultarPost.classList.add('oculto');
+        });
+
+        btnguardar.addEventListener('click', () => {
+          // guardo en la variable idPost el id de los post :)
+          const idPost = doc.userID;
+          // guardo en la variable postEditado el valor asignado o post editado en el input
+          const postEditado = divPadre.querySelector(`#resultado-${doc.userID}`).value;
+          // console.log(postEditado);
+          // llamo a la función updatePost
+          updatePost(idPost, postEditado);
+        });
         // });
+        mostrarPost.appendChild(divPadre);
       });
     });
   };

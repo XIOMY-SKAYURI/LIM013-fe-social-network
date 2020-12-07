@@ -27,23 +27,6 @@ margin-top: 25px;
 
 }
 
-/* .cerrarsesión{
-right: 38px;
-background:rgb(92, 170, 233);
-height: 38px;
-left: 68px;
-top: 15px;
-margin-left: 20px;
-margin-top: 25px;
-} */
-
-.cerrarsesión{
-width: 80px;
-font-size: 10px;
-background-color: yellowgreen;
-border-radius: 5px;
-margin: 2px;
-}
 
 .p7{
  margin-top: 5px;
@@ -190,13 +173,7 @@ margin: 10px;
            margin: 5px;
     }
 
-    .fotos{
-        background-color:#EEEDEB;
-        border-radius: 50%;
-        width: 65px;
-            height: 28px;
-           margin: 28px;   
-    }
+   
    
     #compartirSubir{
         width: 223px;
@@ -208,7 +185,20 @@ margin: 10px;
         margin-bottom: 8px;
     }
 
-    #icono{
+    #btneditar{
+        height: 23px;
+    width: 23px;
+  margin: 10px;
+    cursor: pointer;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 8px;
+        color: #8D8D8D;
+        
+    }
+
+    #btnguardar{
         height: 23px;
     width: 23px;
   margin: 10px;
@@ -221,6 +211,22 @@ margin: 10px;
         
   
     }
+
+    .btndelete{
+        height: 23px;
+    width: 23px;
+  margin: 10px;
+    cursor: pointer;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 8px;
+        color: #8D8D8D;
+        
+  
+    }
+
+
 
 .containerPosteado{
     display: flex;
@@ -280,6 +286,10 @@ margin: 10px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: white;
+}
+
+.oculto{
+display: none;
 }
 
 #postear{

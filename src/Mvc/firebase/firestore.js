@@ -21,16 +21,29 @@ export const Post = (uid, username, createNote, date) => firebase.firestore().co
 
 });
 // ------Mostrar cambios en tiempo real-----
-export const onGetPost = callback => firebase.firestore().collection('pots').onSnapshot(callback);
-// -----------------------------Función eliminar post----------------------------------------//
+// lection('pots').onSnapshot(callback);
+// ----------------------------Mostrar cambios en tiempo real----------------------------//
+export const onGetPost = callback => firebase.firestore().collection('pots')
+  .onSnapshot((querySnapshot) => {
+    const data = [];
+    querySnapshot.forEach((doc) => {
+      data.push({
+        userID: doc.id,
+        name: doc.data().userID,
+        note: doc.data().note,
+        date: doc.data().date,
+      });
+    });
+    // console.log(data);
+    callback(data);
+  });
+
+// ----------------------------- eliminar post----------------------------------------//
 export const deleteNote = idDoc => firebase.firestore().collection('pots').doc(idDoc).delete();
 
-// --------editar-------------
-
-// export const getDocId = idDoc => firebase.firestore().collection('pots').doc(idDoc).get();
-
-// método onSnapshot(). Una llamada inicial con la devolución de llamada que proporcionas crea una
-// instantánea del documento de inmediato con los contenidos actuales de ese documento.
-
-// callbackfn es un funcion como parametro lo mando
-// .orderBy('date', 'desc')
+// -------- actualizar datos-------------
+// le paso como parámetroa al id del post y a la nota
+export const update = (id, note) => firebase.firestore().collection('pots').doc(id).update({
+// note es la propiedad que quiero actualizar
+  note,
+});
