@@ -6,54 +6,49 @@ export const userCollection = (idDoc, username, emailUser, userPhoto) => firebas
   photoUrl: userPhoto,
 });
 
+
 // Metodo set Para crear o reemplazar un solo documento
 // cuando usa set para crear un documento especificar un ID para el documento que vas a crear.
 
 // ----------------------Función crea collecion para postear -----------------------------------//
-export const Post = (uid, username, createNote, date, photoUser) => firebase.firestore().collection('post').add({
+
+export const Post = (uid, username, createNote, date) => firebase.firestore().collection('pots').add({
   userID: uid,
   name: username,
   note: createNote,
   date,
-  photo: photoUser,
+
 });
 
-// a veces no hay un ID significativo para el documento y es más conveniente
-// dejar que Cloud Firestore genere automáticamente un ID. Para hacerlo, llama a add():
 
-
-// ----------------------Función obtener Obténer actualizaciones----------------------------------//
-
-export const readAddNotes = callback => firebase.firestore()
-  .collection('post').onSnapshot((querySnapShot) => {
+// ----------------------------Mostrar cambios en tiempo real----------------------------//
+export const onGetPost = callback => firebase.firestore().collection('pots')
+  .onSnapshot((querySnapshot) => {
     const data = [];
-    querySnapShot.forEach((doc) => {
+    querySnapshot.forEach((doc) => {
       data.push({
         userID: doc.id,
         name: doc.data().userID,
         note: doc.data().note,
         date: doc.data().date,
-        photo: doc.data().photo,
       });
     });
+    // console.log(data);
     callback(data);
   });
 
-
 // método onSnapshot(). Una llamada inicial con la devolución de llamada que proporcionas crea una
-// instantánea del documento de inmediato con los contenidos actuales de ese documento.
+// // instantánea del documento de inmediato con los contenidos actuales de ese documento.
 
-// callbackfn es un funcion como parametro lo mando
-// .orderBy('date', 'desc')
+// ----------------------------- eliminar post----------------------------------------//
+export const deleteNote = idDoc => firebase.firestore().collection('pots').doc(idDoc).delete();
 
-// ------------------------Función actualiza post-------------------------------------------------//
 
-export const updatePost = (idPost, newContent) => {
-  const update = firebase.firestore().collection('posts').doc(idPost);
-  return update.update({
-    content: newContent,
-  });
-};
+// -------------------------------actualizar datos----------------------------------//
 
-// -----------------------------Función eliminar post----------------------------------------//
-export const deleteNote = idNote => firebase.firestore().collection('post').doc(idNote).delete();
+// le paso como parámetroa al id del post y a la nota
+export const update = (id, note) => firebase.firestore().collection('pots').doc(id).update({
+
+  // note es la propiedad que quiero actualizar
+  note,
+});

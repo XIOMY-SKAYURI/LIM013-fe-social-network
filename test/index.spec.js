@@ -1,5 +1,7 @@
 
-import { signIn, createUser } from '../src/Mvc/firebase/firebase-Auth.js';
+import {
+  signIn, createUser, signInGoogle, signOut,
+} from '../src/Mvc/firebase/firebase-Auth.js';
 
 // configurando firebase mock
 const firebasemock = require('firebase-mock');
@@ -15,7 +17,6 @@ global.firebase = firebasemock.MockFirebaseSdk(
   () => mockauth,
   // () => mockfirestore
 );
-
 
 describe('Sign In ', () => {
   it('Deberia poder iniciar sesión', () => signIn('carlos@gmail.com', '1234567')
@@ -33,4 +34,23 @@ describe('createUser', () => {
       done();
     });
   });
+});
+
+describe('signInGoogle', () => {
+  it('debería ser una función', () => {
+    expect(typeof signInGoogle).toBe('function');
+  });
+  it('debería poder ingresar con Google', () => {
+    signInGoogle('carlos@gmail.com')
+      .then((user) => {
+        expect(user.email).toBe('carlos@gmail.com');
+      });
+  });
+});
+
+describe('signOut', () => {
+  it('Debería poder cerrar sesión', () => signOut()
+    .then((userLog) => {
+      expect(userLog).toBe(undefined);
+    }));
 });

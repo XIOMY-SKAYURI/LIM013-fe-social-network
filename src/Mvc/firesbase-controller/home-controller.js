@@ -1,14 +1,13 @@
-import { Post } from '../firebase/firestore.js';
+import { Post, deleteNote, update } from '../firebase/firestore.js';
 
-// --------------------------------------Función--------------------------------------------//
+// --------------------------------------Consumo de promesa post---------------------------------//
 
-export const createAddNote = (userID, username, note, date, photoUser) => {
+export const createAddNote = (userID, username, note, date) => {
   // console.log(userID);
   // console.log(username);
   // console.log(note);
   // console.log(date);
-  // console.log(Photo);
-  Post(userID, username, note, date, photoUser)
+  Post(userID, username, note, date)
     .then((doc) => {
       console.log('escribe tu post', doc.id);
     })
@@ -17,9 +16,28 @@ export const createAddNote = (userID, username, note, date, photoUser) => {
     });
 };
 
+// -------------------------------Consumo la promesa deleteNote ------------------------------//
 
-// userID: uid,
-// name: username,
-// note: createNote,
-// date,
-// photo: photoUser,
+export const deletePost = (idDoc) => {
+  // const id = e.target.dataset.uid;
+  deleteNote(idDoc)
+    .then(() => {
+      console.log('documento exitosamente borrado');
+    })
+    .catch((error) => {
+      console.error('error al remover documento', error);
+    });
+};
+
+// -------------------Consumo la promesa updatePost pasandole los 2 parámetros--------------------//
+
+export const updatePost = (id, note) => {
+  update(id, note)
+    .then(() => {
+      console.log('Document successfully updated!');
+    })
+    .catch((error) => {
+    // The document probably doesn't exist.
+      console.error('Error updating document: ', error);
+    });
+};
