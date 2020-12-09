@@ -41,6 +41,7 @@ Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in
 
  ![mobile](/src/imagenes/final-mobile2.PNG)
 
+
  ![mobile]/src/imagenes/final-mobile.PNG)
 
 - Versión Web:
