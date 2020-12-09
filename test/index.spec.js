@@ -1,14 +1,12 @@
-
 import {
-  signIn, createUser, signInGoogle, signOut,
+  signIn, createUser, signInGoogle, getUser, signOut,
 } from '../src/Mvc/firebase/firebase-Auth.js';
 
 // configurando firebase mock
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
+
 mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(
@@ -48,9 +46,22 @@ describe('signInGoogle', () => {
   });
 });
 
+describe('getUser', () => {
+  it('debería ser una función', () => {
+    expect(typeof getUser).toBe('function');
+  });
+  it('Deberia extraer a usuario logeado', () => {
+    const user = {
+      currentUser: { id: 'abc01' },
+    };
+    firebase.auth().currentUser = user.currentUser;
+    expect(getUser().id).toEqual('abc01');
+  });
+});
+
 describe('signOut', () => {
-  it('Debería poder cerrar sesión', () => signOut()
-    .then((userLog) => {
-      expect(userLog).toBe(undefined);
+  it('Deberia cerrar sesión', () => signOut()
+    .then((user) => {
+      expect(user).toBe(undefined);
     }));
 });
