@@ -1,13 +1,16 @@
-import { Post, deleteNote, update } from '../firebase/firestore.js';
+import {
+  Post, deleteNote, update,
+} from '../firebase/firestore.js';
 
-// --------------------------------------Consumo de promesa post---------------------------------//
+// --------------------------------------Función--------------------------------------------//
 
-export const createAddNote = (userID, username, note, date) => {
+export const createAddNote = (userID, username, note, date, status) => {
   // console.log(userID);
   // console.log(username);
   // console.log(note);
   // console.log(date);
-  Post(userID, username, note, date)
+  // console.log(Photo);
+  Post(userID, username, note, date, status)
     .then((doc) => {
       console.log('escribe tu post', doc.id);
     })
@@ -16,7 +19,7 @@ export const createAddNote = (userID, username, note, date) => {
     });
 };
 
-// -------------------------------Consumo la promesa deleteNote ------------------------------//
+// consumo la promesa deleteNote
 
 export const deletePost = (idDoc) => {
   // const id = e.target.dataset.uid;
@@ -29,7 +32,7 @@ export const deletePost = (idDoc) => {
     });
 };
 
-// -------------------Consumo la promesa updatePost pasandole los 2 parámetros--------------------//
+// consumo la promesa updatePost pasandole los 2 parámetros
 
 export const updatePost = (id, note) => {
   update(id, note)

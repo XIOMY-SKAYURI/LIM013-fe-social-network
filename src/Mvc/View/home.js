@@ -85,6 +85,7 @@ export default () => {
   btnEnviar.addEventListener('click', (e) => {
     e.preventDefault();
     const postText = divElemt.querySelector('#compartirSubir').value;
+    const selectStatus = divElemt.querySelector('#post-new-privacity').value;
     const date = new Date(); // crea objeto fecha
 
     if (postText !== '') {
@@ -93,7 +94,8 @@ export default () => {
         user.displayName,
         postText,
         date,
-        user.PhotoURL,
+        selectStatus,
+        // user.PhotoURL,
       );
     }
     // en la linea 43 le cambie el div por form o formulario para usar el rest()
