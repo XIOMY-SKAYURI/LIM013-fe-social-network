@@ -23,7 +23,7 @@ export default () => {
   <div class='containerInfoUser'>
     <img class='foto1' src='${user.photoURL}'>
     <div class='namePencil'>
-      <p class='p8'>${user.displayName} <img class='icoInfo' src='iconos/boton-editar.png'></p>
+      <p class='p8'>${user.displayName}<i class="far fa-edit"></i></p>
       <p class='p9'>Hola soy ${user.displayName} y me gusta mucho la ciencia </p>
     </div>
 
