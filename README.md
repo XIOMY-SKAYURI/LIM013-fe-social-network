@@ -15,9 +15,6 @@ Para ello usamos Firebase, el MVC, modularización, CSS, JS y HTML.
 
 Prototipos de alta fidelidad final
 
-- Versión Mobile
-
-![prototipoaltam] (/src/imagenes/mobile2.PNG)
 
 - Versión Web
 
@@ -39,7 +36,7 @@ Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in
 - Versón Mobile
 
 
- ![mobile](/src/imagenes/final-mobile2.PNG)
+ ![mobile](/src/imagenes/version-mobile.PNG)
 
 
  ![mobile]/src/imagenes/final-mobile.PNG)
