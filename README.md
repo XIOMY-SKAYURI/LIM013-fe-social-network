@@ -39,12 +39,16 @@ Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in
 - Versón Mobile
 
 
- ![mobile](/src/imagenes/final-mobile2.PNG) ![mobile]/src/imagenes/final-mobile1.PNG)
+ ![mobile](/src/imagenes/final-mobile2.PNG)
+
+ ![mobile]/src/imagenes/final-mobile.PNG)
 
 - Versión Web:
 
 
- ![web](/src/imagenes/web-desktop.PNG) ![web](/src/imagenes/web-Registrar.PNG)
+ ![web](/src/imagenes/web-desktop.PNG)
+
+ ![web](/src/imagenes/web-registrar.PNG)
 
 
 
