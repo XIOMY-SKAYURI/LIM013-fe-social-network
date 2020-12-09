@@ -334,4 +334,37 @@ footer{
 
 }
 
+@media screen and (min-width:680px) {
+    .sectionHome {
+        margin: auto;
+        background-color: #EEEDEB;
+        display: flex;
+        flex-direction: row;
+        height: 800px;
+        /* justify-content: center;  */
+         align-items: baseline;
+        /* align-content: center;  */
+        /* width: 414px;
+        height: 736px; */
+    }
 
+    /* .containerSubir{
+        margin: 30px;
+        padding: 20px;
+    }
+
+    .containerPosteadoImg{
+        margin: 30px;
+        padding: 20px;
+    }
+
+    #containerPost{
+        margin: 30px;
+        padding: 20px; */
+    
+
+    .containerPosteado{
+        margin: 30px;
+        padding: 20px;
+    }
+}

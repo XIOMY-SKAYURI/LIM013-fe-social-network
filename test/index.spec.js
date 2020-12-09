@@ -1,5 +1,7 @@
 
-import { signIn, createUser, signInGoogle } from '../src/Mvc/firebase/firebase-Auth.js';
+import {
+  signIn, createUser, signInGoogle, getUser, signOut,
+} from '../src/Mvc/firebase/firebase-Auth.js';
 
 // configurando firebase mock
 const firebasemock = require('firebase-mock');
@@ -44,4 +46,24 @@ describe('signInGoogle', () => {
         expect(user.email).toBe('carlos@gmail.com');
       });
   });
+});
+
+describe('getUser', () => {
+  it('debería ser una función', () => {
+    expect(typeof getUser).toBe('function');
+  });
+  it('Deberia extraer a usuario logeado', () => {
+    const user = {
+      currentUser: { id: 'abc01' },
+    };
+    firebase.auth().currentUser = user.currentUser;
+    expect(getUser().id).toEqual('abc01');
+  });
+});
+
+describe('signOut', () => {
+  it('Deberia cerrar sesión', () => signOut()
+    .then((user) => {
+      expect(user).toBe(undefined);
+    }));
 });

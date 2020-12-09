@@ -12,18 +12,18 @@ export const userCollection = (idDoc, username, emailUser, userPhoto) => firebas
 
 // ----------------------Función crea collecion para postear -----------------------------------//
 
-export const Post = (uid, username, createNote, date) => firebase.firestore().collection('pots').add({
+export const Post = (uid, username, createNote, date, status) => firebase.firestore().collection('pots').add({
   userID: uid,
   name: username,
   note: createNote,
   date,
+  status,
   // photo: photoUser,
-
 });
 // ------Mostrar cambios en tiempo real-----
 // lection('pots').onSnapshot(callback);
 // ----------------------------Mostrar cambios en tiempo real----------------------------//
-export const onGetPost = callback => firebase.firestore().collection('pots')
+export const onGetPost = callback => firebase.firestore().collection('pots').where('status', '==', 'public')
   .onSnapshot((querySnapshot) => {
     const data = [];
     querySnapshot.forEach((doc) => {

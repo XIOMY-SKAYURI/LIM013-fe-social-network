@@ -4,13 +4,13 @@ import {
 
 // --------------------------------------Función--------------------------------------------//
 
-export const createAddNote = (userID, username, note, date) => {
+export const createAddNote = (userID, username, note, date, status) => {
   // console.log(userID);
   // console.log(username);
   // console.log(note);
   // console.log(date);
   // console.log(Photo);
-  Post(userID, username, note, date)
+  Post(userID, username, note, date, status)
     .then((doc) => {
       console.log('escribe tu post', doc.id);
     })

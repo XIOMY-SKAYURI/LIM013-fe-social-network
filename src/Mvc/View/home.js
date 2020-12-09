@@ -20,6 +20,7 @@ export default () => {
      </figure>
   </header>
   <section class='sectionHome'>
+  <div id='part1'>
     <div class='containerInfoUser'>
     <img   class='foto' src='${user.photoURL}'>
       <div class='namePencil'>
@@ -39,12 +40,19 @@ export default () => {
         <a href="#" class='tituloIcon'>bailar</a>
       </div>
     </div>
+
+    </div>  
   
+    <div id='part2'>
     <form class='containerSubir' id='containerSubir'>
     <img   class='foto' src='${user.photoURL}'>
       <div class='containerSubirInput'>
       <textarea id="compartirSubir" name="compartirSubir" rows="4" cols="50" placeholder=" compartir información"></textarea>
       <button id='publicar' class='icoPostGeneral' >Publicar</button>
+      <select id="post-new-privacity">
+      <option id='publico' value="public">🌎 Público</option>
+      <option id='privado' value="privacity">🔒 Privado</option>
+      </select>
       
       
       <div class='botonesSubir'>
@@ -81,10 +89,11 @@ export default () => {
       </div>
     </div>
     </div>
-    </div>
     <div>
   <button class='cerrarsesión'>Cerrar sesión</button>
   </div>
+    </div>
+  </div> 
   </section>
   
   <footer>
@@ -103,13 +112,16 @@ export default () => {
       });
   });
   // ------------------Función que crea nota--------------------------------//
+  // selectStatus.addEventListener('change', ()=> {
 
-
+  // })
   const btnEnviar = divElemt.querySelector('#publicar');
   // readAddNotes
   btnEnviar.addEventListener('click', (e) => {
     e.preventDefault();
     const postText = divElemt.querySelector('#compartirSubir').value;
+    const selectStatus = divElemt.querySelector('#post-new-privacity').value;
+    console.log(selectStatus);
     const date = new Date(); // crea objeto fecha
 
     if (postText !== '') {
@@ -118,9 +130,13 @@ export default () => {
         user.displayName,
         postText,
         date,
-        user.PhotoURL,
+        // user.PhotoURL,
+        selectStatus,
+        // status.opcionPrivado,
       );
     }
+
+
     // en la linea 43 le cambie el div por form o formulario para usar el rest()
     // El método reset () restablece los valores de todos los elementos en un formulario
     document.getElementById('containerSubir').reset();
@@ -146,7 +162,7 @@ export default () => {
                         <div class='iconos'>
                         <button  id='botoneditar-${doc.userID}' ' ><img class='icoPostear' src="imagenes/lapiz.png">editar</button>
                         <button  id='botonsave-${doc.userID}' class='oculto'><img class='icoPostear' src="imagenes/guardar.png">guardar</button>
-                        <button  class='btndelete' id='${doc.userID}' ><img class='icoPostear' src="imagenes/TACHO.png">borrar</button>
+                        <button  class='btndelete' data-id='${doc.userID}' ><img class='icoPostear' src="imagenes/TACHO.png">borrar</button>
                         </div>
                         `;
 
