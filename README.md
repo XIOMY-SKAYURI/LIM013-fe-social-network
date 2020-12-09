@@ -25,19 +25,14 @@ Prototipos de alta fidelidad final
 
 ![prototipoaltad](/src/imagenes/desktop3.PNG)
 
-### Test de Usabilidad
+### Historias de usuario
+Como usuario nuevo debo poder crear una cuenta con email y password válidos para ingresar a la red social.
 
-Tarea 1: Como usuario nuevo, deberá registrarse e ingresar datos necesarios.
-Problema: El cambio de vista de Iniciar Sesion a Registrate, confunde por el color de fondo: ¿estoy en otro sitio web? y ¿Cansancio visual?.
-Solucion: Elegir un solo color de fondo y el formulario a solicitar, tendra un fondo blanco.
+Como usuario registrado debo poder iniciar sesión con email y password válidos para ingresar a la red social.
 
-Tarea 2:  ¿Cómo publicas un nuevo post? ¿Cómo indicas que la publicacion sea privada?
-Problema: Ubicación de la privacidad: No encontró facilmente.
-Solucion: Ubicar privacidad lado derecho.
+Como usuario nuevo debo poder iniciar sesión con mi cuenta de Google o Facebook para ingresar a la red social (sin necesidad de crear una cuenta de email válido).
 
-Tarea 3:  Necesitas cambiar la privacidad de una publicación ya realizada.
-Problema: No encontró facilmente el icono que indica privacidad en post publicados.
-Solucion: Cambiar privacidad del post publicado, de icono a select incluido emoji indicativo.
+Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in place) y eliminar una publicación (post) privada o pública, que puede ser una frase o una imagen.
 
 ### Versión final del proyecto:
 
