@@ -36,10 +36,10 @@ Como usuario loggeado debo poder crear, guardar, modificar en el mismo lugar (in
 - Versón Mobile
 
 
- ![mobile](/src/imagenes/version-mobile.PNG)
+ ![mobile](/src/imagenes/version-mobil.PNG)
 
 
- ![mobile]/src/imagenes/final-mobile.PNG)
+ ![mobile](/src/imagenes/final-mobile.PNG)
 
 - Versión Web:
 
