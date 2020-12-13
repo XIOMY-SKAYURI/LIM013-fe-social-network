@@ -8,7 +8,6 @@ import { getUser, signOut } from '../firebase/firebase-Auth.js';
 export default () => {
   // creamos un nuevo elemento div  y agregamos  viewHome
   const user = getUser();
-  console.log(user);
   const divElemt = document.createElement('div');
   divElemt.innerHTML = `
 
@@ -98,7 +97,6 @@ export default () => {
         // user.PhotoURL,
       );
     }
-    // en la linea 43 le cambie el div por form o formulario para usar el rest()
 
     // El método reset () restablece los valores de todos los elementos en un formulario
     document.getElementById('containerSubir').reset();
@@ -111,11 +109,6 @@ export default () => {
       const mostrarPost = divElemt.querySelector('#containerPost');
       mostrarPost.innerHTML = '';
       data.forEach((doc) => {
-        // console.log(doc);
-        // console.log(doc.id);
-        // console.log(doc.note);
-        // console.log(data);
-
         const divPadre = document.createElement('div');
         divPadre.className = 'containerPost';
 
@@ -153,7 +146,6 @@ export default () => {
           // remuevo al botón guardar y al input donde se va a editar
           btnguardar.classList.remove('oculto');
           const inputEditando = divPadre.querySelector(`#resultado-${doc.userID}`);
-          // console.log(inputEditando);
           inputEditando.classList.remove('oculto');
           // oculto al párrafo
           ocultarPost.classList.add('oculto');
@@ -166,11 +158,9 @@ export default () => {
           const idPost = doc.userID;
           // guardo en la variable postEditado el valor asignado o post editado en el input
           const postEditado = divPadre.querySelector(`#resultado-${doc.userID}`).value;
-          // console.log(postEditado);
           // llamo a la función updatePost
           updatePost(idPost, postEditado);
         });
-        // });
         mostrarPost.appendChild(divPadre);
       });
     });

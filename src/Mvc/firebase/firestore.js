@@ -34,7 +34,7 @@ export const onGetPost = callback => firebase.firestore().collection('pots').whe
         date: doc.data().date,
       });
     });
-    // console.log(data);
+    //
     callback(data);
   });
 

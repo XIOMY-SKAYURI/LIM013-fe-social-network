@@ -18,7 +18,7 @@ const fixtureData = {
         },
       },
     },
-    pots: {
+    post: {
       __doc__: {
         abc2d: {
           userID: '01',
@@ -46,7 +46,7 @@ describe('Post', () => {
     )));
 });
 
-describe('Delete a post', () => {
+describe('post', () => {
   it('Debería poder eliminar un post', done => deleteNote('id_02')
     .then(() => onGetPost(
       (data) => {
@@ -61,6 +61,7 @@ describe('Delete a post', () => {
 describe('update', () => {
   it('Debería poder editar un post con el id: abc2d', done => update('abc2d', 'que sea un lindo día').then(() => onGetPost((data) => {
     const result = data.find(post => post.note === 'que sea un lindo día');
+    console.log(data.find);
     expect(result.note).toBe('que sea un lindo día');
     done();
   })));

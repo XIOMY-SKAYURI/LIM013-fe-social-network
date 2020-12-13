@@ -24,6 +24,17 @@ describe('Sign In ', () => {
 });
 
 
+// eslint-disable-next-line jest/no-focused-tests
+// describe.only('createUser', () => {
+//   it('Debería poder crear un nuevo usuario', () => {
+//     return createUser('ana@gmail.com', '1234567').then((newUser) => {
+//       expect(newUser.email).toBe('ana@gmail.com');
+//       expect(newUser.isAnonymous).toBe(false);
+//     });
+//   });
+// });
+
+
 describe('createUser', () => {
   it('Debería poder crear un nuevo usuario', (done) => {
     createUser('ana@gmail.com', '1234567').then((newUser) => {
@@ -45,6 +56,7 @@ describe('signInGoogle', () => {
       });
   });
 });
+
 
 describe('getUser', () => {
   it('debería ser una función', () => {
