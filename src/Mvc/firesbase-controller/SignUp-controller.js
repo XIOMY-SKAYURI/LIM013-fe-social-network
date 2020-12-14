@@ -1,4 +1,3 @@
-
 import { createUser, getUser } from '../firebase/firebase-Auth.js';
 import { userCollection } from '../firebase/firestore.js';
 

@@ -1,9 +1,7 @@
 import { signIn, signInGoogle } from '../firebase/firebase-Auth.js';
-// import { readAddNotes } from '../firebase/firestore.js';
 
 export default () => {
   const viewSignIn = document.createElement('div');
-  // viewSignIn.classList.add('position');
   viewSignIn.innerHTML = `
     <form>
     <div class='logIn'>
@@ -11,7 +9,7 @@ export default () => {
     <div class='veraviso'>
     <div class='cajaalert'><img class="alert" src="imagenes/alert.png"><h3 >No se ha podido iniciar tu sesión.</h3></div>
     <p5 id="mensajeEmail" class='aviso'></p5>
-   <p6 id="mensajePass" class='aviso'></p6>
+    <p6 id="mensajePass" class='aviso'></p6>
     </div>
     </div>
     <figure> 
@@ -40,19 +38,18 @@ export default () => {
   const txtPassword = viewSignIn.querySelector('.SingIn2');
   const aviso = viewSignIn.querySelector('.ocultar');
   const btnRegister1 = viewSignIn.querySelector('.login');
+
   btnRegister1.addEventListener('click', (e) => {
     e.preventDefault();
     const email = txtEmail.value;
     const pass = txtPassword.value;
-    // const auth = firebase.auth();
-    // const promise = auth.signInWithEmailAndPassword(email, pass);
     signIn(email, pass)
       .then(() => {
         window.location.hash = '#/Home';
         // readAddNotes();
       })
       .catch((error) => {
-      // Handle Errors here.
+        // Handle Errors here.
         const errorCode = error.code;
         if (errorCode === 'auth/wrong-password') {
           aviso.classList.remove('ocultar');
@@ -64,11 +61,12 @@ export default () => {
           aviso.classList.remove('ocultar');
           document.getElementById('mensajeEmail').innerHTML = '*Esta cuenta no existe en RESEARCH EASY.Indicar otra o crear una nueva';
         }
-        // console.log(error);
       });
   });
+
+  // --------------------- consumo de promesa signInGoogle---------------------//
   // Maneja el flujo de acceso con el SDK de Firebase
-  const ingresarGoogle = viewSignIn.querySelector('.ingresargoogle');
+  const ingresarGoogle = viewSignIn.querySelector('.ingresargoogle'); // boton
   ingresarGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     signInGoogle()

@@ -8,8 +8,8 @@ import Different from './404.js';
 
 // exporta se usara en rauter.js de view-controller
 export const components = {
-  hom: home,
-  SignI: SignIn,
-  SignU: SignUp,
-  different: Different,
+  home, // cuando tenemos duplicado podemos recortar.
+  SignIn,
+  SignUp,
+  Different,
 };

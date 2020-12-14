@@ -11,16 +11,16 @@ export const changeTmp = (hash) => {
   container.innerHTML = '';
   switch (hash) {
     case '': // agregame al final de container components y su propiedad
-      container.appendChild(components.SignI());
+      container.appendChild(components.SignIn());
       break;
     case '#/signUp':
-      container.appendChild(components.SignU());
+      container.appendChild(components.SignUp());
       break;
     case '#/Home':
-      container.appendChild(components.hom());
+      container.appendChild(components.home());
       break;
     default:
-      return container.appendChild(components.Different());
+      return container.appendChild(components.Differente());
   }
 
   return changeTmp;

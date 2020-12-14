@@ -1,4 +1,3 @@
-
 import {
   signIn, createUser, signInGoogle, getUser, signOut,
 } from '../src/Mvc/firebase/firebase-Auth.js';
@@ -7,8 +6,7 @@ import {
 const firebasemock = require('firebase-mock');
 
 const mockauth = new firebasemock.MockFirebase();
-// const mockfirestore = new firebasemock.MockFirestore();
-// mockfirestore.autoFlush();
+
 mockauth.autoFlush();
 
 global.firebase = firebasemock.MockFirebaseSdk(

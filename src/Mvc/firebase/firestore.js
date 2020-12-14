@@ -12,7 +12,7 @@ export const userCollection = (idDoc, username, emailUser, userPhoto) => firebas
 
 // ----------------------Función crea collecion para postear -----------------------------------//
 
-export const Post = (uid, username, createNote, date, status) => firebase.firestore().collection('pots').add({
+export const Post = (uid, username, createNote, date, status) => firebase.firestore().collection('post').add({
   userID: uid,
   name: username,
   note: createNote,
@@ -23,7 +23,7 @@ export const Post = (uid, username, createNote, date, status) => firebase.firest
 // ------Mostrar cambios en tiempo real-----
 // lection('pots').onSnapshot(callback);
 // ----------------------------Mostrar cambios en tiempo real----------------------------//
-export const onGetPost = callback => firebase.firestore().collection('pots').where('status', '==', 'public')
+export const onGetPost = callback => firebase.firestore().collection('post').where('status', '==', 'public')
   .onSnapshot((querySnapshot) => {
     const data = [];
     querySnapshot.forEach((doc) => {
@@ -34,16 +34,23 @@ export const onGetPost = callback => firebase.firestore().collection('pots').whe
         date: doc.data().date,
       });
     });
-    // console.log(data);
+
+    //
     callback(data);
   });
 
-// ----------------------------- eliminar post----------------------------------------//
-export const deleteNote = idDoc => firebase.firestore().collection('pots').doc(idDoc).delete();
+// método onSnapshot(). Una llamada inicial con la devolución de llamada que proporcionas crea una
+// // instantánea del documento de inmediato con los contenidos actuales de ese documento.
 
-// -------- actualizar datos-------------
+// ----------------------------- eliminar post----------------------------------------//
+export const deleteNote = idDoc => firebase.firestore().collection('post').doc(idDoc).delete();
+
+
+// -------------------------------actualizar datos----------------------------------//
+
 // le paso como parámetroa al id del post y a la nota
-export const update = (id, note) => firebase.firestore().collection('pots').doc(id).update({
-// note es la propiedad que quiero actualizar
+export const update = (id, note) => firebase.firestore().collection('post').doc(id).update({
+
+  // note es la propiedad que quiero actualizar
   note,
 });

@@ -44,8 +44,3 @@ export const updatePost = (id, note) => {
       console.error('Error updating document: ', error);
     });
 };
-// userID: uid,
-// name: username,
-// note: createNote,
-// date,
-// photo: photoUser,

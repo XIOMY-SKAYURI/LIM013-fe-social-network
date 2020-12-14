@@ -41,12 +41,16 @@
 - 😄 Pronouns: Kat 
 - ⚡ Fun fact: ...
 
-## Find me on
+## Find us in
 
+- Gmail    xiomygarciaguerrero@gmail.com 📹 
+- <a href="https://www.linkedin.com/in/xiomy-skayuri-garc%C3%ADa-guerrero-50392317a/"> LinkedIn</a>
 - Gmail    katyhuamanitito1@gmail.com 📹 
 - <a href="https://www.linkedin.com/in/katy-lurdes/"> LinkedIn</a> 
 
-### Connect with me:
+### Connect us:
+
+[<img align="left" alt="xio" | LinkedIn" width="22px" src=""https://www.linkedin.com/in/xiomy-skayuri-garc%C3%ADa-guerrero-50392317a/" />][linkedin]
 
 [<img align="left" alt="palomajurado | LinkedIn" width="22px" src=""https://www.linkedin.com/in/katy-lurdes/" />][linkedin]
 [<img align="left" alt="palomajurado | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
